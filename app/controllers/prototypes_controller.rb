@@ -1,5 +1,5 @@
 class PrototypesController < ApplicationController
-  before_action :authenticate_user!, expect: [:index, :new, :show]
+  before_action :authenticate_user!, expect: [:index, :new, :show] 
   before_action :move_to_index, expect: [:index, :edit]
   
   def index
