@@ -4,7 +4,7 @@
       <p class="prototype__hedding">
         <%= @prototypes.title %>
       </p>
-      <%= link_to @prototypes.user.name, root_path, class: :prototype__user %>
+      <%= link_to @prototypes.user.name, user_path(@prototypes.user_id), class: :prototype__user %>
       <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
         <div class="prototype__manage">
         <% if user_signed_in? && current_user.id == @prototypes.user_id %>
@@ -50,7 +50,7 @@
             <% @comments.each do |comment| %>
             <p>
               <strong> <%= comment.text %>
-              <%= link_to comment.user.name, "/users/#{current_user.id}", class: :comment_user %></strong>
+              <%= link_to comment.user.name, user_path(comment.user_id), class: :comment_user %></strong>
               </p>
             <% end %>
             </li>
